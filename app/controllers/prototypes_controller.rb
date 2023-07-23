@@ -33,7 +33,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype= Prototype.find(params[:id])
-    @new_comment= Comment.new
+    @comment= Comment.new
     @comments= @prototype.comments.includes(:user)
   end
 
