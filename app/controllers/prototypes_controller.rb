@@ -50,7 +50,7 @@ class PrototypesController < ApplicationController
     if @prototype.update(prototype_params) && attributes_changed?(original_attributes) 
       redirect_to prototype_path(@prototype)
     else
-     render :show
+      redirect_to prototype_path(@prototype)
     end
   end
 
