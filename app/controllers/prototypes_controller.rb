@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!,only:[:edit]
+  before_action :authenticate_user!,only:[:new, :edit]
   before_action :move_to_index, except: [:index, :show, :new, :create]
   
 
@@ -52,7 +52,7 @@ class PrototypesController < ApplicationController
     elsif !attributes_changed?(original_attributes)
       redirect_to edit_prototype_path(@prototype)
     else
-     render :show
+     render :edit
     end
   end
 
