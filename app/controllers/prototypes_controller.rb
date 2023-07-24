@@ -15,7 +15,6 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype=  Prototype.create (prototype_params)
-    
     if @prototype.save
       redirect_to root_path
     else
@@ -33,7 +32,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype= Prototype.find(params[:id])
-    @new_comment= Comment.new
+    @comment= Comment.new
     @comments= @prototype.comments.includes(:user)
   end
 
@@ -68,7 +67,7 @@ class PrototypesController < ApplicationController
   end
   
   def comment_params
-    params.require(:comment).permit(:content, :prototype).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
+    params.require(:comment).permit(:content, :prototype_id).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
   end
 
   def move_to_index

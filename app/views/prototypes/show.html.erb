@@ -36,7 +36,7 @@
       </div>
       <div class="prototype__comments">  
         <!-- ログインしているユーザーには以下のコメント投稿フォームを表示する -->
-           <%= form_with(model:[@prototype, @new_comment],local: true) do |f|%>
+           <%= form_with(model:[@prototype, @comment],local: true) do |f|%>
                  <% if user_signed_in? %>
             <div class="field">
               <%= f.label :content, "コメント" %><br />
